@@ -141,7 +141,7 @@ This indicates potential first-mover opportunity. However, Pachora uses Nashik a
 
 **Decision:** **High-potential candidate for detailed feasibility analysis.**
 
-![Pachora Case Study](output/screenshots/case_study_pachora.png)
+![Pachora Case Study](output/Screenshots/case_study_pachora.png)
 
 ---
 
@@ -162,8 +162,7 @@ Despite attractive demand, the location operates within a highly competitive qui
 
 **Decision:** **Promising demand, but expansion requires stronger differentiation and further validation.**
 
-![Mumbai Case Study](output/screenshots/case_study_mumbai.png)
-
+![Mumbai Case Study](output/Screenshots/case_study_mumbai.png)
 ---
 
 ## Business Value
