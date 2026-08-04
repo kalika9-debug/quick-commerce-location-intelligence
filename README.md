@@ -43,7 +43,7 @@ The project begins by mapping **4,081 dark-store locations** across Blinkit, Zep
 
 The analysis showed that **national market leadership does not necessarily translate into local dominance**.
 
-![India Dark Store Network](output/screenshots/india_dark_store_network.png)
+![India Dark Store Network](output/Screenshots/india_dark_store_network.png)
 
 ---
 
@@ -62,7 +62,7 @@ The core business logic became:
 
 > **Strong Demand + Competitive Whitespace = Expansion Opportunity**
 
-![Demand vs Competition](output/screenshots/demand_vs_competition.png)
+![Demand vs Competition](output/Screenshots/demand_vs_competition.png)
 
 ---
 
@@ -80,7 +80,7 @@ A **Location Opportunity Score / 100** was created using:
 
 This produced **3,232 decision-ready locations**.
 
-The rankings were also tested under Balanced, Demand-Focused, and Low-Competition strategies to evaluate their stability.
+The rankings were also tested under **Balanced, Demand-Focused, and Low-Competition strategies** to evaluate their stability.
 
 ---
 
@@ -103,7 +103,7 @@ Key markets included:
 - **Vellore** — strong and stable
 - **Palakkad** — attractive under a low-competition strategy
 
-![Market Expansion Strategy](output/screenshots/market_expansion_strategy.png)
+![Market Expansion Strategy](output/Screenshots/market_expansion_strategy.png)
 
 ### Key Insight
 
@@ -113,7 +113,7 @@ Key markets included:
 
 ## 5. Interactive Location Intelligence Engine
 
-The final notebook converts the analysis into an interactive site-screening system.
+The final notebook converts the analysis into an interactive **site-screening system**.
 
 ### Input
 
@@ -123,7 +123,7 @@ The final notebook converts the analysis into an interactive site-screening syst
 
 `Site Score` • `Demand Strength` • `Market Opportunity` • `Nearby Stores` • `Competitors` • `Whitespace` • `Strategy` • `Reliability`
 
-The engine allows a user to evaluate a specific Indian location rather than relying only on market-level rankings.
+The engine allows users to evaluate a specific Indian location rather than relying only on market-level rankings.
 
 ---
 
@@ -163,15 +163,16 @@ Despite attractive demand, the location operates within a highly competitive qui
 **Decision:** **Promising demand, but expansion requires stronger differentiation and further validation.**
 
 ![Mumbai Case Study](output/Screenshots/case_study_mumbai.png)
+
 ---
 
 ## Business Value
 
 The project transforms:
 
-**4,081 Stores → 3,232 Scored Locations → 48 Markets → 12 Expansion Priorities → Site-Level Recommendations**
+> **4,081 Stores → 3,232 Scored Locations → 48 Markets → 12 Expansion Priorities → Site-Level Recommendations**
 
-It can support:
+The framework can support:
 
 - Market screening
 - Competitive intelligence
@@ -205,8 +206,13 @@ quick-commerce-location-intelligence/
 │   └── Project datasets
 │
 ├── output/
-│   ├── Model results
-│   └── screenshots/
+│   ├── Output study.docx
+│   └── Screenshots/
+│       ├── case_study_mumbai.png
+│       ├── case_study_pachora.png
+│       ├── demand_vs_competition.png
+│       ├── india_dark_store_network.png
+│       └── market_expansion_strategy.png
 │
 ├── presentation/
 │   └── Project presentation
@@ -220,7 +226,15 @@ quick-commerce-location-intelligence/
 
 The model provides **strategic site-screening intelligence rather than guaranteed profitability**.
 
-Final expansion decisions should additionally consider actual orders, property rent, delivery economics, rider availability, traffic, operating costs, and real-time competitor activity.
+Final expansion decisions should additionally consider:
+
+- Actual order demand
+- Property rent
+- Delivery economics
+- Rider availability
+- Traffic and accessibility
+- Operating costs
+- Real-time competitor activity
 
 ---
 
@@ -234,4 +248,4 @@ and instead asks:
 
 > ### **"Where is commercially attractive demand still available?"**
 
-The result is an end-to-end geospatial decision-support system that converts raw location data into actionable quick-commerce expansion recommendations.
+The result is an end-to-end **geospatial decision-support system** that converts raw location data into actionable quick-commerce expansion recommendations.
