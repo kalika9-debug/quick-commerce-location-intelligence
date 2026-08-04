@@ -2,15 +2,15 @@
 
 > A geospatial decision-support system for identifying high-potential dark-store expansion locations across India.
 
-## Overview
+## Project Overview
 
-Quick-commerce expansion is not simply about finding high-demand cities. A market can have strong demand but still be unattractive due to **high competition, store saturation, or limited competitive whitespace**.
+Quick-commerce expansion is not simply about finding high-demand cities. A market may have strong demand but still be unattractive due to **intense competition, store saturation, or limited competitive whitespace**.
 
 This project analyzes the observed networks of **Blinkit, Zepto, and Swiggy Instamart** to answer:
 
 > **Where should a quick-commerce brand expand next?**
 
-The system combines **demand, competition, brand strength, store density, and geospatial intelligence** to identify and evaluate expansion opportunities.
+The system combines **demand, competition, brand strength, store density, and geospatial intelligence** to identify commercially attractive expansion opportunities.
 
 ---
 
@@ -33,92 +33,152 @@ The system combines **demand, competition, brand strength, store density, and ge
 
 ---
 
-## Methodology
+## 1. Understanding the Market
 
-The project follows an end-to-end location intelligence workflow:
+The project begins by mapping **4,081 dark-store locations** across Blinkit, Zepto, and Swiggy Instamart.
 
-**Market Network → Demand Intelligence → Competition Analysis → Opportunity Engineering → Scoring → Expansion Strategy → Interactive Site Evaluation**
+- **Blinkit:** 1,954
+- **Zepto:** 1,089
+- **Swiggy Instamart:** 1,038
 
-### Demand Intelligence
-A **Retail Demand Index (RDI)** was used to measure market quality beyond population alone.
+The analysis showed that **national market leadership does not necessarily translate into local dominance**.
 
-### Competition Intelligence
-Competitive pressure was evaluated using **competitor presence, brand share, store density, and local whitespace**.
-
-### Opportunity Scoring
-Each location received a **Location Opportunity Score / 100** based on:
-
-- **40%** Demand Strength
-- **20%** Competition Opportunity
-- **15%** Competitor Pressure
-- **15%** Local Brand Strength
-- **10%** Density Opportunity
+![India Dark Store Network](output/screenshots/india_dark_store_network.png)
 
 ---
 
-## Key Results
+## 2. Finding Expansion Opportunity
 
-From **48 evaluated markets**:
+Population alone was not enough to identify attractive markets.
+
+A **Retail Demand Index** was combined with local competitive indicators including:
+
+- Competitor pressure
+- Brand share
+- Store density
+- Competitive whitespace
+
+The core business logic became:
+
+> **Strong Demand + Competitive Whitespace = Expansion Opportunity**
+
+![Demand vs Competition](output/screenshots/demand_vs_competition.png)
+
+---
+
+## 3. Location Opportunity Scoring
+
+A **Location Opportunity Score / 100** was created using:
+
+| Factor | Weight |
+|---|---:|
+| Demand Strength | **40%** |
+| Competition Opportunity | **20%** |
+| Competitor Pressure | **15%** |
+| Local Brand Strength | **15%** |
+| Density Opportunity | **10%** |
+
+This produced **3,232 decision-ready locations**.
+
+The rankings were also tested under Balanced, Demand-Focused, and Low-Competition strategies to evaluate their stability.
+
+---
+
+## 4. Expansion Strategy
+
+The final market model evaluated **48 markets**:
 
 | Strategy | Markets |
 |---|---:|
-| 🟢 EXPAND | **12** |
-| 🟡 WATCH | **12** |
-| ⚪ LOW PRIORITY | **24** |
+| 🟢 **EXPAND** | **12** |
+| 🟡 **WATCH** | **12** |
+| ⚪ **LOW PRIORITY** | **24** |
 
-**Coimbatore** ranked as the strongest baseline opportunity, while **Madurai** demonstrated strong ranking stability.
+Only **25% of evaluated markets** qualified for immediate expansion priority.
+
+Key markets included:
+
+- **Coimbatore** — #1 baseline opportunity
+- **Madurai** — strong ranking stability
+- **Vellore** — strong and stable
+- **Palakkad** — attractive under a low-competition strategy
+
+![Market Expansion Strategy](output/screenshots/market_expansion_strategy.png)
 
 ### Key Insight
 
-> **High demand does not automatically mean high expansion potential. The real opportunity lies where demand remains strong without excessive competitive pressure.**
+> **High demand does not automatically mean high expansion potential. Competition determines how much opportunity remains.**
 
 ---
 
-## Interactive Location Intelligence Engine
+## 5. Interactive Location Intelligence Engine
 
 The final notebook converts the analysis into an interactive site-screening system.
 
 ### Input
-- Indian city/town or coordinates
-- Candidate brand
-- Search radius
+
+`Location / Coordinates` + `Brand` + `Search Radius`
 
 ### Output
-- Preliminary Site Score / 100
-- Demand Strength
-- Market Opportunity
-- Nearby Dark Stores
-- Competitor Count
-- Competitive Whitespace
-- Expansion Strategy
-- Model Reliability
-- Local Competitive Landscape
+
+`Site Score` • `Demand Strength` • `Market Opportunity` • `Nearby Stores` • `Competitors` • `Whitespace` • `Strategy` • `Reliability`
+
+The engine allows a user to evaluate a specific Indian location rather than relying only on market-level rankings.
 
 ---
 
-## Case Study — Pachora, Maharashtra
+# Case Studies
+
+## 🟢 Pachora, Maharashtra — Expansion Opportunity
 
 **Brand:** Blinkit  
-**Site Score:** **84.4 / 100**  
-**Recommendation:** 🟢 **Strong Expansion Candidate**
+**Preliminary Site Score:** **84.4 / 100**  
+**Model Outcome:** **Strong Expansion Candidate**
 
-The model detected **0 mapped competitors within 5 km and 100% competitive whitespace**, indicating potential first-mover opportunity.
+The engine detected **0 mapped dark stores within 5 km**, resulting in **100% competitive whitespace**.
 
-However, the demand intelligence uses Nashik as the nearest reference market, so further local validation is required.
+This indicates potential first-mover opportunity. However, Pachora uses Nashik as its nearest reference intelligence market, so the result requires further local demand validation.
 
-**Outcome:** High-potential candidate for detailed feasibility analysis.
+**Decision:** **High-potential candidate for detailed feasibility analysis.**
+
+![Pachora Case Study](output/screenshots/case_study_pachora.png)
 
 ---
 
-## Case Study — Mumbai, Maharashtra
+## 🟡 Mumbai, Maharashtra — Competitive Market
 
 **Brand:** Swiggy Instamart  
-**Site Score:** **67.7 / 100**  
-**Recommendation:** 🟡 **Consider / Watch**
+**Preliminary Site Score:** **67.7 / 100**  
+**Model Outcome:** **Consider / Watch**
 
-Mumbai showed strong demand (**0.88**), but the selected 5 km catchment contained **37 dark stores and 28 competitors**, resulting in a **76% competitor ratio** and only **24% competitive whitespace**.
+Mumbai showed strong demand, but the selected 5 km catchment contained:
 
-**Outcome:** Attractive demand, but high competitive pressure increases expansion risk.
+- **37 nearby dark stores**
+- **28 competitors**
+- **76% competitor ratio**
+- Only **24% local whitespace**
+
+Despite attractive demand, the location operates within a highly competitive quick-commerce environment.
+
+**Decision:** **Promising demand, but expansion requires stronger differentiation and further validation.**
+
+![Mumbai Case Study](output/screenshots/case_study_mumbai.png)
+
+---
+
+## Business Value
+
+The project transforms:
+
+**4,081 Stores → 3,232 Scored Locations → 48 Markets → 12 Expansion Priorities → Site-Level Recommendations**
+
+It can support:
+
+- Market screening
+- Competitive intelligence
+- Expansion prioritization
+- Whitespace identification
+- Candidate-site evaluation
 
 ---
 
@@ -140,13 +200,14 @@ quick-commerce-location-intelligence/
 │   └── 10_Interactive_Location_Intelligence_Engine.ipynb
 │
 ├── Reports/
-│   └── Project documentation and executive summary
+│   └── Project documentation
 │
 ├── dataset/
 │   └── Project datasets
 │
 ├── output/
-│   └── Analysis outputs and model results
+│   ├── Model results
+│   └── screenshots/
 │
 ├── presentation/
 │   └── Project presentation
@@ -156,40 +217,22 @@ quick-commerce-location-intelligence/
 
 ---
 
-## Business Value
-
-The project transforms:
-
-**4,081 dark stores → 3,232 scored locations → 48 evaluated markets → 12 expansion priorities → site-level recommendations**
-
-It provides a structured framework for **market screening, competitive analysis, whitespace identification, and candidate-site evaluation**.
-
----
-
 ## Limitations
 
-The model provides **strategic site-screening intelligence**, not guaranteed profitability.
+The model provides **strategic site-screening intelligence rather than guaranteed profitability**.
 
-Final expansion decisions should additionally consider:
-
-- Actual order demand
-- Property rent
-- Delivery economics
-- Rider availability
-- Traffic and accessibility
-- Operating costs
-- Real-time competitor activity
+Final expansion decisions should additionally consider actual orders, property rent, delivery economics, rider availability, traffic, operating costs, and real-time competitor activity.
 
 ---
 
 ## Conclusion
 
-Instead of asking:
+This project moves beyond asking:
 
-> **Where is demand highest?**
+> **"Where is demand highest?"**
 
-this project asks the more useful business question:
+and instead asks:
 
-> ### **Where is commercially attractive demand still available?**
+> ### **"Where is commercially attractive demand still available?"**
 
-The result is an end-to-end **quick-commerce location intelligence system** that turns raw geospatial data into actionable expansion recommendations.
+The result is an end-to-end geospatial decision-support system that converts raw location data into actionable quick-commerce expansion recommendations.
